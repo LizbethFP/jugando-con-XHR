@@ -27,6 +27,7 @@ function addNews() {
   // console.log(data);
   // const response = data.response;
   // console.log(response);
+  // console.log(this.response);
   const articles = data.response.docs;
 
   articles.forEach(function(article) {
