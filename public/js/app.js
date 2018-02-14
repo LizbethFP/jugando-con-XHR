@@ -37,7 +37,7 @@ function addNews() {
 
     let li = document.createElement('li');
     li.className = 'articleClass';
-    let content = `<h2><a href='${webUrl}' target='_blank'>${title}<a/></h2><img src="${img}"><p>${snippet}</p>`;
+    let content = `<h2><a href='${webUrl}' target='_blank' class='text-info'>${title}<a/></h2><img src="${img}"><p>${snippet}</p>`;
     li.innerHTML = content;
 
     responseContainer.appendChild(li);

@@ -15,17 +15,17 @@ btnFetch.addEventListener('submit', function(event) {
     }).then(function(data) {
       console.log(data.response);
       // console.log(data.response.docs[0]);
-      const articleFetchs = data.response.docs;
+      const articles = data.response.docs;
 
-      articleFetchs.forEach(function(articleFetch) {
-        const titleFetch = articleFetch.headline.main;
-        const snippetFetch = articleFetch.snippet;
-        const webUrlFetch = articleFetch.web_url;
-        const imgFetch = `https://www.nytimes.com/${articleFetch.multimedia[0].url}`;
+      articles.forEach(function(article) {
+        const titleFetch = article.headline.main;
+        const snippetFetch = article.snippet;
+        const webUrlFetch = article.web_url;
+        const imgFetch = `https://www.nytimes.com/${article.multimedia[0].url}`;
 
         let liFetch = document.createElement('li');
         liFetch.className = 'articleClass';
-        let contentFetch = `<h2><a href='${webUrlFetch}' target='_blank'>${titleFetch}<a/></h2><img src="${imgFetch}"><p>${snippetFetch}</p>`;
+        let contentFetch = `<h2><a href='${webUrlFetch}' target='_blank' class='text-info'>${titleFetch}<a/></h2><img src="${imgFetch}"><p>${snippetFetch}</p>`;
         liFetch.innerHTML = contentFetch;
         responseContainerFetch.appendChild(liFetch);
       });
