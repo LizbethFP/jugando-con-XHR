@@ -13,15 +13,21 @@ btnFetch.addEventListener('submit', function(event) {
       console.log(response);
       return response.json();
     }).then(function(data) {
-      // console.log(data.response);
+      console.log(data.response);
       // console.log(data.response.docs[0]);
-      const articleFetch = data.response.docs[0];
-      const titleFetch = articleFetch.headline.main;
-      const snippetFetch = articleFetch.snippet;
-      let liFetch = document.createElement('li');
-      liFetch.className = 'articleClass';
-      liFetch.innerText = snippetFetch;
-      responseContainerFetch.appendChild(liFetch);
+      const articleFetchs = data.response.docs;
+
+      articleFetchs.forEach(function(articleFetch) {
+        const titleFetch = articleFetch.headline.main;
+        const snippetFetch = articleFetch.snippet;
+        const webUrlFetch = articleFetch.web_url;
+
+        let liFetch = document.createElement('li');
+        liFetch.className = 'articleClass';
+        let contentFetch = `<h2><a href='${webUrlFetch}' target='_blank'>${titleFetch}<a/></h2><p>${snippetFetch}</p>`;
+        liFetch.innerHTML = contentFetch;
+        responseContainerFetch.appendChild(liFetch);
+      });
     })
     .catch(function() {
       console.log('Se ha presentado un error');

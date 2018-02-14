@@ -27,13 +27,18 @@ function addNews() {
   // console.log(data);
   // const response = data.response;
   // console.log(response);
-  const article = data.response.docs[0];
-  const title = article.headline.main;
-  const snippet = article.snippet;
+  const articles = data.response.docs;
 
-  let li = document.createElement('li');
-  li.className = 'articleClass';
-  li.innerText = snippet;
+  articles.forEach(function(article) {
+    const title = article.headline.main;
+    const snippet = article.snippet;
+    const webUrl = article.web_url;
 
-  responseContainer.appendChild(li);
+    let li = document.createElement('li');
+    li.className = 'articleClass';
+    let content = `<h2><a href='${webUrl}' target='_blank'>${title}<a/></h2><p>${snippet}</p>`;
+    li.innerHTML = content;
+
+    responseContainer.appendChild(li);
+  });
 }
