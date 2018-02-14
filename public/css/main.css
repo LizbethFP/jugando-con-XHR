@@ -1,0 +1,18 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  /* background-color: grey; */
+}
+
+header {
+  background-color: #ffc107;
+  padding: 5%;
+}
+
+.articleClass {
+  background-color: white;
+  border: 1px solid lightgrey;
+  margin-top: 1em;
+  margin-right: 2.5em;
+  list-style: none;
+  padding: 1em;
+}
