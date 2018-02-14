@@ -33,10 +33,11 @@ function addNews() {
     const title = article.headline.main;
     const snippet = article.snippet;
     const webUrl = article.web_url;
+    const img = `https://www.nytimes.com/${article.multimedia[0].url}`;
 
     let li = document.createElement('li');
     li.className = 'articleClass';
-    let content = `<h2><a href='${webUrl}' target='_blank'>${title}<a/></h2><p>${snippet}</p>`;
+    let content = `<h2><a href='${webUrl}' target='_blank'>${title}<a/></h2><img src="${img}"><p>${snippet}</p>`;
     li.innerHTML = content;
 
     responseContainer.appendChild(li);
